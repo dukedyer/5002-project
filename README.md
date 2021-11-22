@@ -4,7 +4,7 @@
 - [x] Roles
 - [x] Status
 - [x] Plane
-- [ ] Trip
+- [?] Trip -- should a trip really be just a "route" that the airline can run?
 - [ ] User
 - [ ] Passenger
 - [ ] Employee
