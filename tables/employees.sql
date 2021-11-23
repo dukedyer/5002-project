@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `db_final_project`.`employees`;
 CREATE TABLE `db_final_project`.`employees` (
- `id` INT NOT NULL AUTO_INCREMENT,
+ `id` INT NOT NULL,
  `start_date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
  `role` VARCHAR(30) NULL,
  `airline` VARCHAR(30) NULL,

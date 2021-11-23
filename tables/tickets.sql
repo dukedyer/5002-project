@@ -24,5 +24,5 @@ CREATE TABLE `db_final_project`.`tickets` (
  CONSTRAINT `tickets_to_plane`
  FOREIGN KEY (`plane_id`) 
  REFERENCES `db_final_project`.`planes` (`id`) 
- ON DELETE CASCADE
+ ON DELETE RESTRICT /*Replace planes before they can retire*/
  ON UPDATE CASCADE);
