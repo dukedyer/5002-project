@@ -11,3 +11,10 @@
 - [ ] Ticket
 - [ ] Task
 - [ ] Task Assignment
+
+
+P2:
+- User
+- Passenger
+- Ticket
+- Plane
