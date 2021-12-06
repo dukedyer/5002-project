@@ -1,17 +1,20 @@
 const {Link, useHistory} = window.ReactRouterDOM;
-import passengerService from "../passengers/passenger-service"
+import planeService from "../passengers/passenger-service"
 const { useState, useEffect } = React;
 
+const goBack = () => {
+    history.back()
+};
 
 const PlaneList = () => {
     const history = useHistory()
-    const [users, setUsers] = useState([])
+    const [planes, setPlanes] = useState([])
     useEffect(() => {
         findAllUsers()
     }, [])
     const findAllUsers = () =>
-        passengerService.findAllUsers()
-            .then(users => setUsers(users))
+        planeService.findAllUsers()
+            .then(planes => setPlanes(planes))
     return(
         <div>
             <h2>Planes</h2>
@@ -19,9 +22,13 @@ const PlaneList = () => {
                 Add Plane
             </button>
 
+            <button
+                onClick={() => {goBack()}}>
+                Cancel
+            </button>
             <ul className="list-group">
                 {
-                    users.map(user =>
+                    planes.map(user =>
                                   <li className="list-group-item"
                                       key={user.id}>
                                       <Link to={`/planes/${user.id}`}>

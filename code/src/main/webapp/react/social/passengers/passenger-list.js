@@ -2,6 +2,9 @@ const {Link, useHistory} = window.ReactRouterDOM;
 import passengerService from "./passenger-service"
 const { useState, useEffect } = React;
 
+const goBack = () => {
+    history.back()
+};
 
 const PassengerList = () => {
     const history = useHistory()
@@ -18,7 +21,10 @@ const PassengerList = () => {
             <button onClick={() => history.push("/passengers/new")}>
                 Add Passenger
             </button>
-
+            <button
+                onClick={() => {goBack()}}>
+                Cancel
+            </button>
             <ul className="list-group">
                 {
                     users.map(user =>

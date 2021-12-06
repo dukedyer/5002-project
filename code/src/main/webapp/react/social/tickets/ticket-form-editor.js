@@ -25,7 +25,7 @@ const TicketFormEditor = () => {
 
     return (
         <div>
-            <h2>Passenger Editor</h2>
+            <h2>Ticket Editor</h2>
             <label>ID</label>
             <input value={user.id}/><br/>
 
