@@ -1,14 +1,14 @@
 const {Link, useHistory} = window.ReactRouterDOM;
 const { useState, useEffect } = React;
 
-const findAllPlanes2 = () => fetch("http://localhost:8080/api/users")
+const findAllPlanes2 = () => fetch("http://localhost:8080/api/planes")
     .then(response => response.json());
 
 const goBack = () => {
     history.back()
 };
 
-const UserList = () => {
+const PlaneList = () => {
     const history = useHistory()
     const [planes, setPlanes] = useState([])
     useEffect(() => {
@@ -17,9 +17,9 @@ const UserList = () => {
     const findAllPlanes = () =>findAllPlanes2().then(planes => setPlanes(planes))
     return(
         <div>
-            <h2>Users</h2>
-            <button onClick={() => history.push("/users/new")}>
-                Add User
+            <h2>Planes</h2>
+            <button onClick={() => history.push("/planes/new")}>
+                Add Plane
             </button>
 
             <button
@@ -31,9 +31,9 @@ const UserList = () => {
                     planes.map(user =>
                                   <li className="list-group-item"
                                       key={user.id}>
-                                      <Link to={`/users/${user.id}`}>
+                                      <Link to={`/planes/${user.id}`}>
                                           ID: {user.id},
-                                          Name: {user.firstName} {user.lastName}
+                                          Name: {user.name}
                                       </Link>
                                   </li>)
                 }
@@ -44,4 +44,4 @@ const UserList = () => {
     )
 }
 
-export default UserList;
+export default PlaneList;

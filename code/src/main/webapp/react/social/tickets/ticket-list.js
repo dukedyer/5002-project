@@ -1,39 +1,40 @@
 const {Link, useHistory} = window.ReactRouterDOM;
+import passengerService from "../passengers/passenger-service"
 const { useState, useEffect } = React;
-
-const findAllPlanes2 = () => fetch("http://localhost:8080/api/users")
-    .then(response => response.json());
 
 const goBack = () => {
     history.back()
 };
 
-const UserList = () => {
+export const findAllTickets = () => fetch("http://localhost:8080/api/tickets")
+    .then(response => response.json())
+
+const TicketList = () => {
     const history = useHistory()
-    const [planes, setPlanes] = useState([])
+    const [users, setUsers] = useState([])
     useEffect(() => {
-        findAllPlanes()
+        findAllUsers()
     }, [])
-    const findAllPlanes = () =>findAllPlanes2().then(planes => setPlanes(planes))
+    const findAllUsers = () => findAllTickets().then(users => setUsers(users))
     return(
         <div>
-            <h2>Users</h2>
-            <button onClick={() => history.push("/users/new")}>
-                Add User
+            <h2>Tickets</h2>
+            <button onClick={() => history.push("/tickets/new")}>
+                Add Ticket
             </button>
-
             <button
                 onClick={() => {goBack()}}>
                 Cancel
             </button>
+
             <ul className="list-group">
                 {
-                    planes.map(user =>
+                    users.map(user =>
                                   <li className="list-group-item"
                                       key={user.id}>
-                                      <Link to={`/users/${user.id}`}>
+                                      <Link to={`/tickets/${user.id}`}>
                                           ID: {user.id},
-                                          Name: {user.firstName} {user.lastName}
+                                          Boarding Time: {user.boardingTime}
                                       </Link>
                                   </li>)
                 }
@@ -44,4 +45,4 @@ const UserList = () => {
     )
 }
 
-export default UserList;
+export default TicketList;

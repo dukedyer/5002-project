@@ -1,7 +1,7 @@
 const {useState, useEffect } = React;
 const {Link} = window.ReactRouterDOM;
 
-const InlineUserEditor = ({user, deleteUser, updateUser}) => {
+const InlinePassengerEditor = ({user, deleteUser, updateUser}) => {
     const [userCopy, setUserCopy] = useState(user)
     const [editing, setEditing] = useState(false)
     return(
@@ -78,4 +78,4 @@ const InlineUserEditor = ({user, deleteUser, updateUser}) => {
     )
 }
 
-export default InlineUserEditor;
+export default InlinePassengerEditor;

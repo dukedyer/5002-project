@@ -33,12 +33,14 @@ public class UserRestOrmDao {
             @PathVariable("userId") Integer id,
             @RequestBody User userUpdates) {
         User user = userRepository.findUserById(id);
+
         user.setFirstName(userUpdates.getFirstName());
         user.setLastName(userUpdates.getLastName());
+        user.setDateOfBirth(userUpdates.getDateOfBirth());
+        user.setEmail(userUpdates.getEmail());
         user.setUsername(userUpdates.getUsername());
         user.setPassword(userUpdates.getPassword());
-        user.setProfilePicture(userUpdates.getProfilePicture());
-        user.setHandle(userUpdates.getHandle());
+
         return userRepository.save(user);
     }
     

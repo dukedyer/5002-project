@@ -1,16 +1,18 @@
+import userService from "./plane-service"
+
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
-export const findPlaneById = (id) => fetch(`${"http://localhost:8080/api/users"}/${id}`)
+export const findPlaneById = (id) => fetch(`${"http://localhost:8080/api/planes"}/${id}`)
     .then(response => response.json())
 
 export const deletePlane = (id) =>
-    fetch(`${"http://localhost:8080/api/users"}/${id}`, {
+    fetch(`${"http://localhost:8080/api/planes"}/${id}`, {
         method: "DELETE"
     })
 
 export const createPlane = (user) =>
-    fetch("http://localhost:8080/api/users", {
+    fetch("http://localhost:8080/api/planes", {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {'content-type': 'application/json'}
@@ -18,14 +20,14 @@ export const createPlane = (user) =>
         .then(response => response.json())
 
 export const updatePlaneHelper = (id, user) =>
-    fetch(`${"http://localhost:8080/api/users"}/${id}`, {
+    fetch(`${"http://localhost:8080/api/planes"}/${id}`, {
         method: 'PUT',
         body: JSON.stringify(user),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
 
-const UserFormEditor = () => {
+const PlaneFormEditor = () => {
     const {id} = useParams()
     const [user, setUser] = useState({})
     useEffect(() => {
@@ -44,45 +46,22 @@ const UserFormEditor = () => {
 
     return (
         <div>
-            <h2>UserEditor</h2>
+            <h2>Plane Editor</h2>
             <label>ID</label>
             <input value={user.id}/><br/>
 
-            <label>First Name</label>
+            <label>Serial Number</label>
             <input onChange={(e) =>
                 setUser(user =>
-                            ({...user, firstName: e.target.value}))}
-                   value={user.firstName}/><br/>
+                            ({...user, serialNumber: e.target.value}))}
+                   value={user.serialNumber}/><br/>
 
-            <label>Last Name</label>
+            <label>Name</label>
             <input onChange={(e) =>
                 setUser(user =>
-                            ({...user, lastName: e.target.value}))}
-                   value={user.lastName}/><br/>
+                            ({...user, name: e.target.value}))}
+                   value={user.name}/><br/>
 
-            <label>Date of Birth</label>
-            <input type={"date"} onChange={(e) =>
-                setUser(user =>
-                            ({...user, dateOfBirth: e.target.value}))}
-                   value={user.dateOfBirth}/><br/>
-
-            <label>Email</label>
-            <input onChange={(e) =>
-                setUser(user =>
-                            ({...user, email: e.target.value}))}
-                   value={user.email}/><br/>
-
-            <label>Username</label>
-            <input onChange={(e) =>
-                setUser(user =>
-                            ({...user, username: e.target.value}))}
-                   value={user.username}/><br/>
-
-            <label>Password</label>
-            <input onChange={(e) =>
-                setUser(user =>
-                            ({...user, password: e.target.value}))}
-                   value={user.password}/><br/>
             <button
                 onClick={() => {
                     history.back()
@@ -109,4 +88,4 @@ const UserFormEditor = () => {
 
 }
 
-export default UserFormEditor
+export default PlaneFormEditor
