@@ -10,23 +10,23 @@ import java.time.Instant;
 public class Passenger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer userId;
+    private Integer id;
     private Timestamp createdDate;
 
-    public Integer getUserId() { return userId; }
-    public void setUserId(Integer id) { this.userId = id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public Timestamp getCreatedDate() { return createdDate; }
     public void setCreatedDate(Timestamp createdDate) { this.createdDate = createdDate; }
 
 
-    public Passenger(Integer userId, Timestamp createdDate) {
-        this.userId = userId;
+    public Passenger(Integer id, Timestamp createdDate) {
+        this.id = id;
         this.createdDate = createdDate;
     }
 
-    public Passenger(Integer userId) {
-        this.userId = userId;
+    public Passenger(Integer id) {
+        this.id = id;
         this.createdDate = Timestamp.valueOf(Instant.now().toString());
     }
 

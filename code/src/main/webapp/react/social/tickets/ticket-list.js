@@ -3,7 +3,7 @@ import passengerService from "../passengers/passenger-service"
 const { useState, useEffect } = React;
 
 
-const PlaneList = () => {
+const TicketList = () => {
     const history = useHistory()
     const [users, setUsers] = useState([])
     useEffect(() => {
@@ -14,9 +14,9 @@ const PlaneList = () => {
             .then(users => setUsers(users))
     return(
         <div>
-            <h2>Planes</h2>
-            <button onClick={() => history.push("/planes/new")}>
-                Add Plane
+            <h2>Tickets</h2>
+            <button onClick={() => history.push("/passengers/new")}>
+                Add Ticket
             </button>
 
             <ul className="list-group">
@@ -24,9 +24,9 @@ const PlaneList = () => {
                     users.map(user =>
                                   <li className="list-group-item"
                                       key={user.id}>
-                                      <Link to={`/planes/${user.id}`}>
+                                      <Link to={`/passengers/${user.id}`}>
                                           {user.id},
-                                          {user.name},
+                                          {user.createdDate},
                                       </Link>
                                   </li>)
                 }
@@ -37,4 +37,4 @@ const PlaneList = () => {
     )
 }
 
-export default PlaneList;
+export default TicketList;

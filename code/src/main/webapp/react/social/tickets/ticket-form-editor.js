@@ -1,7 +1,7 @@
-import passengerService from "./passenger-service"
+import passengerService from "../passengers/passenger-service"
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
-const PassengerFormEditor = () => {
+const TicketFormEditor = () => {
     const {id} = useParams()
     const [user, setUser] = useState({})
     useEffect(() => {
@@ -29,8 +29,8 @@ const PassengerFormEditor = () => {
             <label>ID</label>
             <input value={user.id}/><br/>
 
-            <label>Created Date</label>
-            <input type={"date"} onChange={(e) =>
+            <label>Passenger</label>
+            <input onChange={(e) =>
                 setUser(user =>
                             ({...user, createdDate: e.target.value}))}
                    value={user.createdDate}/><br/>
@@ -60,4 +60,4 @@ const PassengerFormEditor = () => {
 
 }
 
-export default PassengerFormEditor
+export default TicketFormEditor

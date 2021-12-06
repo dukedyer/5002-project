@@ -1,5 +1,5 @@
 const {Link, useHistory} = window.ReactRouterDOM;
-import userService from "./passenger-service"
+import passengerService from "./passenger-service"
 const { useState, useEffect } = React;
 
 
@@ -10,7 +10,7 @@ const PassengerList = () => {
         findAllUsers()
     }, [])
     const findAllUsers = () =>
-        userService.findAllUsers()
+        passengerService.findAllUsers()
             .then(users => setUsers(users))
     return(
         <div>
@@ -25,9 +25,8 @@ const PassengerList = () => {
                         <li className="list-group-item"
                             key={user.id}>
                             <Link to={`/passengers/${user.id}`}>
-                                {user.firstName},
-                                {user.lastName},
-                                {user.username}
+                                {user.id},
+                                {user.createdDate},
                             </Link>
                         </li>)
                 }
