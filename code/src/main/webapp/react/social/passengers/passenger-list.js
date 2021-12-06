@@ -1,9 +1,9 @@
 const {Link, useHistory} = window.ReactRouterDOM;
-import userService from "./user-service"
+import userService from "./passenger-service"
 const { useState, useEffect } = React;
 
 
-const UserList = () => {
+const PassengerList = () => {
     const history = useHistory()
     const [users, setUsers] = useState([])
     useEffect(() => {
@@ -14,9 +14,9 @@ const UserList = () => {
             .then(users => setUsers(users))
     return(
         <div>
-            <h2>Users</h2>
-            <button onClick={() => history.push("/users/new")}>
-                Add User
+            <h2>Passengers</h2>
+            <button onClick={() => history.push("/passengers/new")}>
+                Add Passenger
             </button>
 
             <ul className="list-group">
@@ -24,7 +24,7 @@ const UserList = () => {
                     users.map(user =>
                         <li className="list-group-item"
                             key={user.id}>
-                            <Link to={`/users/${user.id}`}>
+                            <Link to={`/passengers/${user.id}`}>
                                 {user.firstName},
                                 {user.lastName},
                                 {user.username}
@@ -38,4 +38,4 @@ const UserList = () => {
     )
 }
 
-export default UserList;
+export default PassengerList;

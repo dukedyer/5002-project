@@ -1,7 +1,7 @@
-import userService from "./user-service"
+import userService from "./passenger-service"
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
-const UserFormEditor = () => {
+const PassengerFormEditor = () => {
     const {id} = useParams()
     const [user, setUser] = useState({})
     useEffect(() => {
@@ -25,7 +25,7 @@ const UserFormEditor = () => {
 
     return (
         <div>
-            <h2>User Editor</h2>
+            <h2>Passenger Editor</h2>
             <label>ID</label>
             <input value={user.id}/><br/>
 
@@ -41,18 +41,35 @@ const UserFormEditor = () => {
                     ({...user, lastName: e.target.value}))}
                    value={user.lastName}/><br/>
 
-            <label>Username</label>
+            <label>Date of Birth</label>
+            <input type={"date"} onChange={(e) =>
+                setUser(user =>
+                    ({...user, dob: e.target.value}))}
+                   value={user.dob}/><br/>
+
+            <label>Email</label>
             <input onChange={(e) =>
                 setUser(user =>
-                    ({...user, username: e.target.value}))}
-                   value={user.username}/><br/>
+                            ({...user, email: e.target.value}))}
+                   value={user.email}/><br/>
 
+            <label>User Name</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, userName: e.target.value}))}
+                   value={user.userName}/><br/>
 
             <label>Password</label>
             <input onChange={(e) =>
                 setUser(user =>
                     ({...user, password: e.target.value}))}
                    value={user.password}/><br/>
+
+            <label>Created Date</label>
+            <input type={"date"} onChange={(e) =>
+                setUser(user =>
+                            ({...user, createdDate: e.target.value}))}
+                   value={user.createdDate}/><br/>
 
             <button
                 onClick={() => {
@@ -79,4 +96,4 @@ const UserFormEditor = () => {
 
 }
 
-export default UserFormEditor
+export default PassengerFormEditor
