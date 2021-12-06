@@ -5,7 +5,6 @@ import com.example.springtemplate.repositories.TicketRestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
@@ -36,11 +35,11 @@ public class TicketRestOrmDao {
             @RequestBody Ticket ticketUpdates) {
         Ticket ticket = ticketRepository.findTicketById(id);
 
-        ticket.setUserId(ticketUpdates.getUserId());
+        ticket.setPassenger(ticketUpdates.getPassenger());
         ticket.setBoardingTime(ticketUpdates.getBoardingTime());
         ticket.setBoardingGroup(ticketUpdates.getBoardingGroup());
         ticket.setGate(ticketUpdates.getGate());
-        ticket.setTripId(ticketUpdates.getTripId());
+        ticket.setTrip(ticketUpdates.getTrip());
         ticket.setPlaneId(ticketUpdates.getPlaneId());
 
         return ticketRepository.save(ticket);

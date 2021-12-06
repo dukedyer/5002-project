@@ -1,8 +1,6 @@
 package com.example.springtemplate.models;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.sql.Time;
 import java.sql.Timestamp;
 
 @Entity
@@ -11,11 +9,11 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer userId;
+    private Integer passenger;
     private Timestamp boardingTime;
     private Integer boardingGroup;
     private Integer gate;
-    private Integer tripId;
+    private Integer trip;
     private Integer planeId;
 
     public Integer getId() {
@@ -26,12 +24,12 @@ public class Ticket {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getPassenger() {
+        return passenger;
     }
 
-    public void setUserId(Integer passengerId) {
-        this.userId = passengerId;
+    public void setPassenger(Integer passengerId) {
+        this.passenger = passengerId;
     }
 
     public Timestamp getBoardingTime() {
@@ -58,12 +56,12 @@ public class Ticket {
         this.gate = gate;
     }
 
-    public Integer getTripId() {
-        return tripId;
+    public Integer getTrip() {
+        return trip;
     }
 
-    public void setTripId(Integer tripId) {
-        this.tripId = tripId;
+    public void setTrip(Integer tripId) {
+        this.trip = tripId;
     }
 
     public Integer getPlaneId() {
@@ -74,12 +72,12 @@ public class Ticket {
         this.planeId = planeId;
     }
 
-    public Ticket(Integer userId, Timestamp boardingTime, Integer boardingGroup, Integer gate, Integer tripId, Integer planeId) {
-        this.userId = userId;
+    public Ticket(Integer passenger, Timestamp boardingTime, Integer boardingGroup, Integer gate, Integer trip, Integer planeId) {
+        this.passenger = passenger;
         this.boardingTime = boardingTime;
         this.boardingGroup = boardingGroup;
         this.gate = gate;
-        this.tripId = tripId;
+        this.trip = trip;
         this.planeId = planeId;
     }
 
