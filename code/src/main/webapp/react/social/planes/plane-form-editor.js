@@ -1,27 +1,48 @@
-import userService from "../passengers/passenger-service"
+import userService from "./plane-service"
+
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
+
+export const findPlaneById = (id) => fetch(`${"http://localhost:8080/api/planes"}/${id}`)
+    .then(response => response.json())
+
+export const deletePlane = (id) =>
+    fetch(`${"http://localhost:8080/api/planes"}/${id}`, {
+        method: "DELETE"
+    })
+
+export const createPlane = (user) =>
+    fetch("http://localhost:8080/api/planes", {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {'content-type': 'application/json'}
+    })
+        .then(response => response.json())
+
+export const updatePlaneHelper = (id, user) =>
+    fetch(`${"http://localhost:8080/api/planes"}/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(user),
+        headers: {'content-type': 'application/json'}
+    })
+        .then(response => response.json())
+
 const PlaneFormEditor = () => {
     const {id} = useParams()
     const [user, setUser] = useState({})
     useEffect(() => {
-        if(id !== "new") {
+        if (id !== "new") {
             findUserById(id)
         }
     }, []);
 
-    const findUserById = (id) => userService.findUserById(id)
-        .then(user => setUser(user))
+    const findUserById = (id) => findPlaneById(id).then(user => setUser(user))
 
-    const deleteUser = (id) => userService.deleteUser(id)
-        .then(() => history.back())
+    const deleteUser = (id) => deletePlane(id).then(() => history.back())
 
-    const createUser = (user) => userService.createUser(user)
-        .then(() => history.back())
+    const createUser = (user) => createPlane(user).then(() => history.back())
 
-    const updateUser = (id, newUser) => userService.updateUser(id, newUser)
-        .then(() => history.back())
-
+    const updatePlane = (id, newUser) => updatePlaneHelper(id, newUser).then(() => history.back())
 
     return (
         <div>
@@ -43,7 +64,8 @@ const PlaneFormEditor = () => {
 
             <button
                 onClick={() => {
-                    history.back()}}>
+                    history.back()
+                }}>
                 Cancel
             </button>
 
@@ -58,7 +80,7 @@ const PlaneFormEditor = () => {
             </button>
 
             <button
-                onClick={() => updateUser(user.id, user)}>
+                onClick={() => updatePlane(user.id, user)}>
                 Save
             </button>
         </div>

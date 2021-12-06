@@ -31,8 +31,8 @@ const PassengerList = () => {
                         <li className="list-group-item"
                             key={user.id}>
                             <Link to={`/passengers/${user.id}`}>
-                                {user.id},
-                                {user.createdDate},
+                                ID: {user.id},
+                                Created Date: {user.createdDate}
                             </Link>
                         </li>)
                 }

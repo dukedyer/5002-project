@@ -1,6 +1,8 @@
 const {Link, useHistory} = window.ReactRouterDOM;
-import planeService from "../passengers/passenger-service"
 const { useState, useEffect } = React;
+
+const findAllPlanes2 = () => fetch("http://localhost:8080/api/planes")
+    .then(response => response.json());
 
 const goBack = () => {
     history.back()
@@ -10,11 +12,9 @@ const PlaneList = () => {
     const history = useHistory()
     const [planes, setPlanes] = useState([])
     useEffect(() => {
-        findAllUsers()
+        findAllPlanes()
     }, [])
-    const findAllUsers = () =>
-        planeService.findAllUsers()
-            .then(planes => setPlanes(planes))
+    const findAllPlanes = () =>findAllPlanes2().then(planes => setPlanes(planes))
     return(
         <div>
             <h2>Planes</h2>
@@ -32,8 +32,8 @@ const PlaneList = () => {
                                   <li className="list-group-item"
                                       key={user.id}>
                                       <Link to={`/planes/${user.id}`}>
-                                          {user.id},
-                                          {user.name},
+                                          ID: {user.id},
+                                          Name: {user.name}
                                       </Link>
                                   </li>)
                 }

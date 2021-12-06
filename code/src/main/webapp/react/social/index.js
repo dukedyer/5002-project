@@ -10,10 +10,10 @@ const App = () => {
     return (
         <div className="container-fluid">
             <HashRouter>
-                <Route path="/home" exact={true}>
+                <Route path={["/home", "/"]} exact={true}>
                     <Home/>
                 </Route>
-                <Route path={["/passengers", "/"]} exact={true}>
+                <Route path="/passengers" exact={true}>
                     <PassengerList/>
                 </Route>
                 <Route path="/passengers/:id" exact={true}>
