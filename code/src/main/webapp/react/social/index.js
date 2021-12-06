@@ -4,7 +4,9 @@ import PlaneList from "./planes/plane-list";
 import PlaneFormEditor from "./planes/plane-form-editor";
 import TicketList from "./tickets/ticket-list";
 import TicketFormEditor from "./tickets/ticket-form-editor";
+import UserList from "./users/user-list";
 import Home from "./home";
+import UserFormEditor from "./users/user-form-editor";
 const {HashRouter, Route} = window.ReactRouterDOM; 
 const App = () => {
     return (
@@ -18,6 +20,12 @@ const App = () => {
                 </Route>
                 <Route path="/passengers/:id" exact={true}>
                     <PassengerFormEditor/>
+                </Route>
+                <Route path="/users" exact={true}>
+                    <UserList/>
+                </Route>
+                <Route path="/users/:id" exact={true}>
+                    <UserFormEditor/>
                 </Route>
                 <Route path="/tickets" exact={true}>
                     <TicketList/>

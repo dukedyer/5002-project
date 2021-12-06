@@ -7,6 +7,9 @@ const Home = () => {
         <div>
             <h2>Logan and Duke's 5200 Project!</h2>
             <p>Choose a class to get ya CRUD on.</p>
+            <button onClick={() => history.push("/users")}>
+                Users
+            </button>
             <button onClick={() => history.push("/passengers")}>
                 Passengers
             </button>
