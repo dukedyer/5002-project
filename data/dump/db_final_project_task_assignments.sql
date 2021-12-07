@@ -16,31 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tasks`
+-- Table structure for table `task_assignments`
 --
 
-DROP TABLE IF EXISTS `tasks`;
+DROP TABLE IF EXISTS `task_assignments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tasks` (
+CREATE TABLE `task_assignments` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `status` varchar(30) DEFAULT NULL,
-  `name` varchar(30) DEFAULT NULL,
-  `trip` int DEFAULT NULL,
+  `employee` int DEFAULT NULL,
+  `task` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `tasks_to_trip_idx` (`trip`),
-  CONSTRAINT `tasks_to_trip` FOREIGN KEY (`trip`) REFERENCES `trips` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `tasks_assignments_to_employee_idx` (`employee`),
+  KEY `tasks_assignments_to_task_idx` (`task`),
+  CONSTRAINT `tasks_assignments_to_employee` FOREIGN KEY (`employee`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `tasks_assignments_to_task` FOREIGN KEY (`task`) REFERENCES `tasks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tasks`
+-- Dumping data for table `task_assignments`
 --
 
-LOCK TABLES `tasks` WRITE;
-/*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
-INSERT INTO `tasks` VALUES (1,'NOT STARTED','cross check',1),(2,'IN PROGRESS','food service',2),(3,'COMPLETED','food cleanup',3);
-/*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
+LOCK TABLES `task_assignments` WRITE;
+/*!40000 ALTER TABLE `task_assignments` DISABLE KEYS */;
+INSERT INTO `task_assignments` VALUES (7,4,1),(8,5,2),(9,6,3);
+/*!40000 ALTER TABLE `task_assignments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-22 23:09:05
+-- Dump completed on 2021-12-06 21:22:51

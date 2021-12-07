@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
 --
 -- Host: localhost    Database: db_final_project
 -- ------------------------------------------------------
--- Server version	8.0.26
+-- Server version	8.0.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,30 +16,38 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `trips`
+-- Table structure for table `tickets`
 --
 
-DROP TABLE IF EXISTS `trips`;
+DROP TABLE IF EXISTS `tickets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `trips` (
+CREATE TABLE `tickets` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `origin` varchar(30) DEFAULT NULL,
-  `destination` varchar(30) DEFAULT NULL,
-  `airline` varchar(30) DEFAULT NULL,
+  `passenger` int DEFAULT NULL,
+  `boarding_time` datetime DEFAULT CURRENT_TIMESTAMP,
+  `boarding_group` int DEFAULT NULL,
+  `gate` int DEFAULT NULL,
+  `trip` int DEFAULT NULL,
+  `plane_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `trip_2_airline` (`airline`),
-  CONSTRAINT `trip_2_airline` FOREIGN KEY (`airline`) REFERENCES `airlines` (`airline`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `tickets_to_passenger_idx` (`passenger`),
+  KEY `tickets_to_trip_idx` (`trip`),
+  KEY `tickets_to_plane_idx` (`plane_id`),
+  CONSTRAINT `tickets_to_passenger` FOREIGN KEY (`passenger`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `tickets_to_plane` FOREIGN KEY (`plane_id`) REFERENCES `planes` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `tickets_to_trip` FOREIGN KEY (`trip`) REFERENCES `trips` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `trips`
+-- Dumping data for table `tickets`
 --
 
-LOCK TABLES `trips` WRITE;
-/*!40000 ALTER TABLE `trips` DISABLE KEYS */;
-/*!40000 ALTER TABLE `trips` ENABLE KEYS */;
+LOCK TABLES `tickets` WRITE;
+/*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
+INSERT INTO `tickets` VALUES (1,1,'2021-11-22 22:15:00',3,5,1,1),(2,2,'2021-11-22 22:20:00',4,5,1,1),(3,4,'2021-09-22 11:00:00',0,1,2,2),(4,5,'2021-11-22 23:00:00',0,7,3,3),(5,6,'2021-11-22 23:00:00',0,7,3,3);
+/*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-22 20:43:48
+-- Dump completed on 2021-12-06 21:22:50

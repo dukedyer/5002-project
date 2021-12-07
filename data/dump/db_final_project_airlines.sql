@@ -16,28 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `passengers`
+-- Table structure for table `airlines`
 --
 
-DROP TABLE IF EXISTS `passengers`;
+DROP TABLE IF EXISTS `airlines`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `passengers` (
-  `id` int NOT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `passengers_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`)
+CREATE TABLE `airlines` (
+  `airline` varchar(10) NOT NULL,
+  PRIMARY KEY (`airline`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `passengers`
+-- Dumping data for table `airlines`
 --
 
-LOCK TABLES `passengers` WRITE;
-/*!40000 ALTER TABLE `passengers` DISABLE KEYS */;
-INSERT INTO `passengers` VALUES (1,'2021-11-22 22:50:02'),(2,'1990-11-22 00:00:00'),(3,'0200-10-10 00:00:00');
-/*!40000 ALTER TABLE `passengers` ENABLE KEYS */;
+LOCK TABLES `airlines` WRITE;
+/*!40000 ALTER TABLE `airlines` DISABLE KEYS */;
+INSERT INTO `airlines` VALUES ('AMERICAN'),('DELTA'),('SOUTHWEST');
+/*!40000 ALTER TABLE `airlines` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-22 23:09:05
+-- Dump completed on 2021-12-06 21:22:51

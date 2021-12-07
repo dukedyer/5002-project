@@ -58,6 +58,12 @@ const TicketFormEditor = () => {
             <label>ID</label>
             <input value={user.id}/><br/>
 
+            <label>Passenger</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                    ({...user, passenger: e.target.value}))}
+                   value={user.passenger}/><br/>
+
             <label>Boarding Time</label>
             <input type={"date"} onChange={(e) =>
                 setUser(user =>

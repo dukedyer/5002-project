@@ -16,28 +16,37 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `passengers`
+-- Table structure for table `employees`
 --
 
-DROP TABLE IF EXISTS `passengers`;
+DROP TABLE IF EXISTS `employees`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `passengers` (
+CREATE TABLE `employees` (
   `id` int NOT NULL,
-  `created_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `start_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `role` varchar(30) DEFAULT NULL,
+  `airline` varchar(30) DEFAULT NULL,
+  `manager` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `passengers_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`)
+  KEY `employee_role` (`role`),
+  KEY `employee_airline` (`airline`),
+  KEY `employees_2_employees_idx` (`manager`),
+  CONSTRAINT `employee_airline` FOREIGN KEY (`airline`) REFERENCES `airlines` (`airline`),
+  CONSTRAINT `employee_role` FOREIGN KEY (`role`) REFERENCES `roles` (`role`),
+  CONSTRAINT `employees_2_employees` FOREIGN KEY (`manager`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `passengers`
+-- Dumping data for table `employees`
 --
 
-LOCK TABLES `passengers` WRITE;
-/*!40000 ALTER TABLE `passengers` DISABLE KEYS */;
-INSERT INTO `passengers` VALUES (1,'2021-11-22 22:50:02'),(2,'1990-11-22 00:00:00'),(3,'0200-10-10 00:00:00');
-/*!40000 ALTER TABLE `passengers` ENABLE KEYS */;
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (4,'2021-01-01 00:00:00','PILOT','DELTA',NULL),(5,'2020-05-05 00:00:00','FLIGHT ATTENDANT','AMERICAN',4),(6,'2021-11-22 22:56:10','GATE ATTENDANT','SOUTHWEST',NULL);
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-22 23:09:05
+-- Dump completed on 2021-12-06 21:22:51
