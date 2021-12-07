@@ -4,16 +4,16 @@
 - [x] Roles
 - [x] Status
 - [x] Plane
-- [?] Trip -- should a trip really be just a "route" that the airline can run?
-- [ ] User
-- [ ] Passenger
-- [ ] Employee
-- [ ] Ticket
-- [ ] Task
-- [ ] Task Assignment
+- [x] Trip -- should a trip really be just a "route" that the airline can run?
+- [x] User
+- [x] Passenger
+- [x] Employee
+- [x] Ticket
+- [x] Task
+- [x] Task Assignment
 
 
-P2:
+P2 backend/frontend tables:
 - User
 - Passenger
 - Ticket
