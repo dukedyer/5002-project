@@ -1,7 +1,6 @@
 package com.example.springtemplate.models;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.Instant;
 
@@ -9,7 +8,7 @@ import java.time.Instant;
 @Table(name="passengers")
 public class Passenger {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private Timestamp createdDate;
 
