@@ -1,4 +1,13 @@
-# Table Buildout Checklist
+# We are modeling an airport domain
+
+### schema name: db_final_project
+### For schema description meeting project requirements, see: data/uml/README.md
+### For UML diagram, see: data/uml/db_final_project_uml.pdf
+### For sql table dump, see: data/dump/
+### For code (backend and frontend), see: code/
+
+
+# P1 Table Buildout Checklist
 
 - [x] Airlines
 - [x] Roles
@@ -13,7 +22,7 @@
 - [x] Task Assignment
 
 
-P2 backend/frontend tables:
+# P2 backend/frontend tables:
 - User
 - Passenger
 - Ticket
