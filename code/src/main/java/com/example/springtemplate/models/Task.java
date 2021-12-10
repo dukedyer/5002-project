@@ -43,8 +43,7 @@ public class Task {
         this.trip = trip;
     }
 
-    public Task(Integer id, String status, String name, Integer trip) {
-        this.id = id;
+    public Task(String status, String name, Integer trip) {
         this.status = status;
         this.name = name;
         this.trip = trip;

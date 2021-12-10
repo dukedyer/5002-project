@@ -44,8 +44,7 @@ public class Trip {
         this.airline = airline;
     }
 
-    public Trip(Integer id, String origin, String destination, String airline) {
-        this.id = id;
+    public Trip(String origin, String destination, String airline) {
         this.origin = origin;
         this.destination = destination;
         this.airline = airline;

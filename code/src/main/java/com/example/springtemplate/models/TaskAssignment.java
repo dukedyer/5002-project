@@ -3,7 +3,7 @@ package com.example.springtemplate.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name="trips")
+@Table(name="task_assignments")
 public class TaskAssignment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,8 +36,7 @@ public class TaskAssignment {
         this.task = task;
     }
 
-    public TaskAssignment(Integer id, Integer employee, Integer task) {
-        this.id = id;
+    public TaskAssignment(Integer employee, Integer task) {
         this.employee = employee;
         this.task = task;
     }
