@@ -1,6 +1,16 @@
 import passengerService from "./passenger-service"
+import User2TicketList from "../users/user-2-ticket-list";
+import Employee2EmployeeList from "../employees/employee-2-employee-list";
+
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
+
+function idHelper (id) {
+    if (id) {
+        return true;
+    }
+}
+
 const PassengerFormEditor = () => {
     const {id} = useParams()
     const [user, setUser] = useState({})
@@ -91,6 +101,7 @@ const PassengerFormEditor = () => {
                 onClick={() => updateUser(user.id, user)}>
                 Save
             </button>
+            {idHelper(user.id) && <User2TicketList/>}
         </div>
     )
 

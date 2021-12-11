@@ -4,6 +4,7 @@ import User2TicketList from "../users/user-2-ticket-list";
 import PassengerList from "../passengers/passenger-list";
 
 import PlaneList from "../planes/plane-list";
+import Employee2EmployeeList from "./employee-2-employee-list";
 
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
@@ -11,6 +12,11 @@ const {useParams, useHistory} = window.ReactRouterDOM;
 export const findPlaneById = (id) => fetch(`${"http://localhost:8080/api/employees"}/${id}`)
     .then(response => response.json())
 
+function idHelper (id) {
+    if (id) {
+        return true;
+    }
+}
 export const deletePlane = (id) =>
     fetch(`${"http://localhost:8080/api/employees"}/${id}`, {
         method: "DELETE"
@@ -135,7 +141,8 @@ const EmployeeFormEditor = () => {
                 onClick={() => updatePlane(user.id, user)}>
                 Save
             </button>
-            <User2TicketList/>
+            {idHelper(user.id) && <User2TicketList/>}
+            {idHelper(user.id) && <Employee2EmployeeList/>}
         </div>
     )
 
