@@ -35,6 +35,12 @@ public class PassengerRestOrmDao {
             @RequestBody Passenger passengerUpdates) {
         Passenger passenger = passengerRepository.findPassengerById(id);
 
+        passenger.setFirstName(passengerUpdates.getFirstName());
+        passenger.setLastName(passengerUpdates.getLastName());
+        passenger.setDateOfBirth(passengerUpdates.getDateOfBirth());
+        passenger.setEmail(passengerUpdates.getEmail());
+        passenger.setUsername(passengerUpdates.getUsername());
+        passenger.setPassword(passengerUpdates.getPassword());
         passenger.setCreatedDate(passengerUpdates.getCreatedDate());
 
         return passengerRepository.save(passenger);

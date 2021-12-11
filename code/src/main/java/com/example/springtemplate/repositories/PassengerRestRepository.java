@@ -9,10 +9,13 @@ import java.util.List;
 
 public interface PassengerRestRepository
         extends CrudRepository<Passenger, Integer> {
-    @Query(value = "SELECT * FROM passengers",
+    @Query(value = "SELECT b.id, first_name, last_name, date_of_birth, email, username, \n"
+            + "password, created_date FROM passengers a, users b WHERE a.id = b.id",
             nativeQuery = true)
     public List<Passenger> findAllPassengers();
-    @Query(value = "SELECT * FROM passengers WHERE id=:passengerId",
+    @Query(value = "SELECT b.id, first_name, last_name, date_of_birth, email, username, \n"
+            + "password, created_date FROM passengers a, users b WHERE a.id = b.id "
+            + "AND a.id=:passengerId",
             nativeQuery = true)
     public Passenger findPassengerById(@Param("passengerId") Integer id);
 }

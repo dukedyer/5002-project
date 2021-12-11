@@ -5,7 +5,8 @@ import java.sql.Date;
 
 @Entity
 @Table(name="passengers")
-public class Passenger {
+@PrimaryKeyJoinColumn(name = "id")
+public class Passenger extends User{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

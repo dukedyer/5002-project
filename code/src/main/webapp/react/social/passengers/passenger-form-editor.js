@@ -29,6 +29,42 @@ const PassengerFormEditor = () => {
             <label>ID</label>
             <input value={user.id}/><br/>
 
+            <label>First Name</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, firstName: e.target.value}))}
+                   value={user.firstName}/><br/>
+
+            <label>Last Name</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, lastName: e.target.value}))}
+                   value={user.lastName}/><br/>
+
+            <label>Date of Birth</label>
+            <input type={"date"} onChange={(e) =>
+                setUser(user =>
+                            ({...user, dateOfBirth: e.target.value}))}
+                   value={user.dateOfBirth}/><br/>
+
+            <label>Email</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, email: e.target.value}))}
+                   value={user.email}/><br/>
+
+            <label>Username</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, username: e.target.value}))}
+                   value={user.username}/><br/>
+
+            <label>Password</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, password: e.target.value}))}
+                   value={user.password}/><br/>
+
             <label>Created Date</label>
             <input type={"date"} onChange={(e) =>
                 setUser(user =>
