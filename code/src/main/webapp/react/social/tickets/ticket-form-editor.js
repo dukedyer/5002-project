@@ -1,6 +1,7 @@
 import passengerService from "../passengers/passenger-service"
 import Ticket2EmployeesList from "./ticket-2-employees-list";
 import Ticket2PassengersList from "./ticket-2-passengers-list";
+import Ticket2PlanesList from "./ticket-2-planes-list";
 
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
@@ -125,6 +126,7 @@ const TicketFormEditor = () => {
             </button>
             {idHelper(user.id) && <Ticket2EmployeesList/>}
             {idHelper(user.id) && <Ticket2PassengersList/>}
+            {idHelper(user.id) && <Ticket2PlanesList/>}
         </div>
     )
 
