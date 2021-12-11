@@ -1,4 +1,7 @@
 import passengerService from "../passengers/passenger-service"
+import Ticket2EmployeesList from "./ticket-2-employees-list";
+import Ticket2PassengersList from "./ticket-2-passengers-list";
+
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
@@ -9,6 +12,12 @@ export const deleteTicket = (id) =>
     fetch(`${"http://localhost:8080/api/tickets"}/${id}`, {
         method: "DELETE"
     })
+
+function idHelper(id) {
+    if (id) {
+        return true;
+    }
+}
 
 export const createTicket = (user) =>
     fetch("http://localhost:8080/api/tickets", {
@@ -30,7 +39,7 @@ const TicketFormEditor = () => {
     const {id} = useParams()
     const [user, setUser] = useState({})
     useEffect(() => {
-        if(id !== "new") {
+        if (id !== "new") {
             findUserById(id)
         }
     }, []);
@@ -61,7 +70,7 @@ const TicketFormEditor = () => {
             <label>Passenger</label>
             <input onChange={(e) =>
                 setUser(user =>
-                    ({...user, passenger: e.target.value}))}
+                            ({...user, passenger: e.target.value}))}
                    value={user.passenger}/><br/>
 
             <label>Boarding Time</label>
@@ -81,10 +90,22 @@ const TicketFormEditor = () => {
                 setUser(user =>
                             ({...user, gate: e.target.value}))}
                    value={user.gate}/><br/>
+            <label>Trip</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, trip: e.target.value}))}
+                   value={user.trip}/><br/>
+
+            <label>Plane</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, planeId: e.target.value}))}
+                   value={user.planeId}/><br/>
 
             <button
                 onClick={() => {
-                    history.back()}}>
+                    history.back()
+                }}>
                 Cancel
             </button>
 
@@ -102,6 +123,8 @@ const TicketFormEditor = () => {
                 onClick={() => updateUser(user.id, user)}>
                 Save
             </button>
+            {idHelper(user.id) && <Ticket2EmployeesList/>}
+            {idHelper(user.id) && <Ticket2PassengersList/>}
         </div>
     )
 
