@@ -42,9 +42,6 @@ const Home = () => {
                 <div style={mystyle2}>
                     <h2 style={mystyle}>Logan and Duke's 5200 Project!</h2>
                     <p>Choose a class to get ya CRUD on.</p>
-                    <button style={buttonStyling} onClick={() => history.push("/users")}>
-                        Users
-                    </button>
                     <button style={buttonStyling} onClick={() => history.push("/passengers")}>
                         Passengers
                     </button>

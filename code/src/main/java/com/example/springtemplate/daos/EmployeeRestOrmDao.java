@@ -35,6 +35,12 @@ public class EmployeeRestOrmDao {
             @RequestBody Employee employeeUpdates) {
         Employee employee = employeeRepository.findEmployeeById(id);
 
+        employee.setFirstName(employeeUpdates.getFirstName());
+        employee.setLastName(employeeUpdates.getLastName());
+        employee.setDateOfBirth(employeeUpdates.getDateOfBirth());
+        employee.setEmail(employeeUpdates.getEmail());
+        employee.setUsername(employeeUpdates.getUsername());
+        employee.setPassword(employeeUpdates.getPassword());
         employee.setStartDate(employeeUpdates.getStartDate());
         employee.setAirline(employeeUpdates.getAirline());
         employee.setRole(employeeUpdates.getRole());

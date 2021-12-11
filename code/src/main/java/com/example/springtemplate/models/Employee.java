@@ -7,7 +7,8 @@ import java.time.Instant;
 
 @Entity
 @Table(name="employees")
-public class Employee {
+@PrimaryKeyJoinColumn(name = "id")
+public class Employee extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

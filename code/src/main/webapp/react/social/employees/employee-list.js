@@ -33,7 +33,8 @@ const EmployeeList = () => {
                                        key={user.id}>
                                        <Link to={`/employees/${user.id}`}>
                                            ID: {user.id},
-                                           Role: {user.role}
+                                           Role: {user.role},
+                                           Name: {user.firstName}
                                        </Link>
                                    </li>)
                 }

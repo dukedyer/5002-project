@@ -1,7 +1,9 @@
+import {findPlaneById} from "../users/user-form-editor";
+
 const {Link, useHistory} = window.ReactRouterDOM;
 const { useState, useEffect } = React;
 
-const findAllPlanes2 = () => fetch("http://localhost:8080/api/planes")
+const findAllPlanes2 = (id) => fetch("http://localhost:8080/api/planes")
     .then(response => response.json());
 
 const goBack = () => {
@@ -14,7 +16,7 @@ const PlaneList = () => {
     useEffect(() => {
         findAllPlanes()
     }, [])
-    const findAllPlanes = () =>findAllPlanes2().then(planes => setPlanes(planes))
+    const findAllPlanes = (id) =>findAllPlanes2(id).then(planes => setPlanes(planes))
     return(
         <div>
             <h2>Planes</h2>

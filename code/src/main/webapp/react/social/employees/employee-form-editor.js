@@ -1,3 +1,10 @@
+
+import PlaneFormEditor from "../planes/plane-form-editor";
+import User2TicketList from "../users/user-2-ticket-list";
+import PassengerList from "../passengers/passenger-list";
+
+import PlaneList from "../planes/plane-list";
+
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
@@ -48,6 +55,42 @@ const EmployeeFormEditor = () => {
             <label>ID</label>
             <input value={user.id}/><br/>
 
+            <label>First Name</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, firstName: e.target.value}))}
+                   value={user.firstName}/><br/>
+
+            <label>Last Name</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, lastName: e.target.value}))}
+                   value={user.lastName}/><br/>
+
+            <label>Date of Birth</label>
+            <input type={"date"} onChange={(e) =>
+                setUser(user =>
+                            ({...user, dateOfBirth: e.target.value}))}
+                   value={user.dateOfBirth}/><br/>
+
+            <label>Email</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, email: e.target.value}))}
+                   value={user.email}/><br/>
+
+            <label>Username</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, username: e.target.value}))}
+                   value={user.username}/><br/>
+
+            <label>Password</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, password: e.target.value}))}
+                   value={user.password}/><br/>
+
             <label>Start Date</label>
             <input type={"date"} onChange={(e) =>
                 setUser(user =>
@@ -66,6 +109,11 @@ const EmployeeFormEditor = () => {
                             ({...user, airline: e.target.value}))}
                    value={user.airline}/><br/>
 
+            <label>Manager</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, manager: e.target.value}))}
+                   value={user.manager}/><br/>
             <button
                 onClick={() => {
                     history.back()
@@ -87,6 +135,7 @@ const EmployeeFormEditor = () => {
                 onClick={() => updatePlane(user.id, user)}>
                 Save
             </button>
+            <User2TicketList/>
         </div>
     )
 

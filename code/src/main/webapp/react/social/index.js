@@ -13,6 +13,7 @@ import TripList from "./trips/trip-list";
 import TripFormEditor from "./trips/trip-form-editor";
 import TaskList from "./tasks/task-list";
 import TaskFormEditor from "./tasks/task-form-editor";
+import User2TicketList from "./users/user-2-ticket-list";
 
 const {HashRouter, Route} = window.ReactRouterDOM; 
 const App = () => {
