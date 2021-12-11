@@ -19,6 +19,15 @@ const Home = () => {
             <button onClick={() => history.push("/Tickets")}>
                 Tickets
             </button>
+            <button onClick={() => history.push("/employees")}>
+                Employees
+            </button>
+            <button onClick={() => history.push("/trips")}>
+                Trips
+            </button>
+            <button onClick={() => history.push("/tasks")}>
+                Tasks
+            </button>
         </div>
     )
 };

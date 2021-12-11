@@ -7,6 +7,13 @@ import TicketFormEditor from "./tickets/ticket-form-editor";
 import UserList from "./users/user-list";
 import Home from "./home";
 import UserFormEditor from "./users/user-form-editor";
+import EmployeeList from "./employees/employee-list";
+import EmployeeFormEditor from "./employees/employee-form-editor";
+import TripList from "./trips/trip-list";
+import TripFormEditor from "./trips/trip-form-editor";
+import TaskList from "./tasks/task-list";
+import TaskFormEditor from "./tasks/task-form-editor";
+
 const {HashRouter, Route} = window.ReactRouterDOM; 
 const App = () => {
     return (
@@ -38,6 +45,24 @@ const App = () => {
                 </Route>
                 <Route path="/planes/:id" exact={true}>
                     <PlaneFormEditor/>
+                </Route>
+                <Route path="/employees" exact={true}>
+                    <EmployeeList/>
+                </Route>
+                <Route path="/employees/:id" exact={true}>
+                    <EmployeeFormEditor/>
+                </Route>
+                <Route path="/trips" exact={true}>
+                    <TripList/>
+                </Route>
+                <Route path="/trips/:id" exact={true}>
+                    <TripFormEditor/>
+                </Route>
+                <Route path="/tasks" exact={true}>
+                    <TaskList/>
+                </Route>
+                <Route path="/tasks/:id" exact={true}>
+                    <TaskFormEditor/>
                 </Route>
             </HashRouter>
         </div>

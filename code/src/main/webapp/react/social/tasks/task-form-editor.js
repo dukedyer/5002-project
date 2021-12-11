@@ -1,16 +1,16 @@
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
-export const findPlaneById = (id) => fetch(`${"http://localhost:8080/api/planes"}/${id}`)
+export const findPlaneById = (id) => fetch(`${"http://localhost:8080/api/tasks"}/${id}`)
     .then(response => response.json())
 
 export const deletePlane = (id) =>
-    fetch(`${"http://localhost:8080/api/planes"}/${id}`, {
+    fetch(`${"http://localhost:8080/api/tasks"}/${id}`, {
         method: "DELETE"
     })
 
 export const createPlane = (user) =>
-    fetch("http://localhost:8080/api/planes", {
+    fetch("http://localhost:8080/api/tasks", {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {'content-type': 'application/json'}
@@ -18,14 +18,14 @@ export const createPlane = (user) =>
         .then(response => response.json())
 
 export const updatePlaneHelper = (id, user) =>
-    fetch(`${"http://localhost:8080/api/planes"}/${id}`, {
+    fetch(`${"http://localhost:8080/api/tasks"}/${id}`, {
         method: 'PUT',
         body: JSON.stringify(user),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
 
-const PlaneFormEditor = () => {
+const TaskFormEditor = () => {
     const {id} = useParams()
     const [user, setUser] = useState({})
     useEffect(() => {
@@ -44,21 +44,27 @@ const PlaneFormEditor = () => {
 
     return (
         <div>
-            <h2>Plane Editor</h2>
+            <h2>Task Editor</h2>
             <label>ID</label>
             <input value={user.id}/><br/>
 
-            <label>Serial Number</label>
+            <label>Status</label>
             <input onChange={(e) =>
                 setUser(user =>
-                            ({...user, serialNumber: e.target.value}))}
-                   value={user.serialNumber}/><br/>
+                            ({...user, status: e.target.value}))}
+                   value={user.status}/><br/>
 
             <label>Name</label>
             <input onChange={(e) =>
                 setUser(user =>
                             ({...user, name: e.target.value}))}
                    value={user.name}/><br/>
+
+            <label>Trip</label>
+            <input onChange={(e) =>
+                setUser(user =>
+                            ({...user, trip: e.target.value}))}
+                   value={user.trip}/><br/>
 
             <button
                 onClick={() => {
@@ -86,4 +92,4 @@ const PlaneFormEditor = () => {
 
 }
 
-export default PlaneFormEditor
+export default TaskFormEditor

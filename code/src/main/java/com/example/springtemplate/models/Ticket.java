@@ -1,6 +1,8 @@
 package com.example.springtemplate.models;
 
 import javax.persistence.*;
+
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -10,7 +12,7 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer passenger;
-    private Timestamp boardingTime;
+    private Date boardingTime;
     private Integer boardingGroup;
     private Integer gate;
     private Integer trip;
@@ -32,11 +34,11 @@ public class Ticket {
         this.passenger = passengerId;
     }
 
-    public Timestamp getBoardingTime() {
+    public Date getBoardingTime() {
         return boardingTime;
     }
 
-    public void setBoardingTime(Timestamp boardingTime) {
+    public void setBoardingTime(Date boardingTime) {
         this.boardingTime = boardingTime;
     }
 
@@ -72,7 +74,7 @@ public class Ticket {
         this.planeId = planeId;
     }
 
-    public Ticket(Integer passenger, Timestamp boardingTime, Integer boardingGroup, Integer gate, Integer trip, Integer planeId) {
+    public Ticket(Integer passenger, Date boardingTime, Integer boardingGroup, Integer gate, Integer trip, Integer planeId) {
         this.passenger = passenger;
         this.boardingTime = boardingTime;
         this.boardingGroup = boardingGroup;
