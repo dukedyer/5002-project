@@ -61,7 +61,7 @@ const Home = () => {
                         Tasks
                     </button>
                     <button style={buttonStyling} onClick={() => history.push("/task-assignments")}>
-                        Task Assignments
+                        Assignments
                     </button>
                 </div>
             </div>
