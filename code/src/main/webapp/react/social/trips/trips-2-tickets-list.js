@@ -1,39 +1,39 @@
-const {Link, useHistory} = window.ReactRouterDOM;
+const {Link, useHistory, useParams} = window.ReactRouterDOM;
 const { useState, useEffect } = React;
 
-const findAllPlanes2 = () => fetch("http://localhost:8080/api/trips")
+const findAllPlanes2 = (id) => fetch(`${"http://localhost:8080/api/trip2tickets"}/${id}`)
     .then(response => response.json());
 
 const goBack = () => {
     history.back()
 };
 
-const TripList = () => {
+function isStuff(stuff) {
+    return stuff.length > 0
+}
+
+const Trip2TicketList = () => {
+    const {id} = useParams()
+    console.log(id);
     const history = useHistory()
     const [planes, setPlanes] = useState([])
     useEffect(() => {
-        findAllPlanes()
+        if (id !== "new") {
+            findAllPlanes(id)
+        }
     }, [])
-    const findAllPlanes = () =>findAllPlanes2().then(planes => setPlanes(planes))
+    const findAllPlanes = (id) =>findAllPlanes2(id).then(planes => setPlanes(planes))
     return(
         <div>
-            <h2>Trips</h2>
-            <button onClick={() => history.push("/trips/new")}>
-                Add Trip
-            </button>
-
-            <button
-                onClick={() => {goBack()}}>
-                Cancel
-            </button>
+            {isStuff(planes) && <h2>Trip {id}'s Tickets</h2>}
             <ul className="list-group">
                 {
                     planes.map(user =>
                                    <li className="list-group-item"
                                        key={user.id}>
-                                       <Link to={`/trips/${user.id}`}>
+                                       <Link to={`/tickets/${user.id}`}>
                                            ID: {user.id},
-                                           {user.origin} to {user.destination}
+                                           Boarding Date: {user.boardingTime}
                                        </Link>
                                    </li>)
                 }
@@ -44,4 +44,4 @@ const TripList = () => {
     )
 }
 
-export default TripList;
+export default Trip2TicketList;
