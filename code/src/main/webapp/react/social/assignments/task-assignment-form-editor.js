@@ -1,5 +1,6 @@
 import Trip2TicketList from "../trips/trip-2-tickets-list";
 import Task2TripsList from "./task-2-trips-list";
+import TaskAssignment2TaskList from "./task-assignment-2-tasks-list";
 
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
@@ -96,6 +97,7 @@ const TaskAssignmentFormEditor = () => {
                 onClick={() => updatePlane(user.id, user)}>
                 Save
             </button>
+            {idHelper(user.id) && <TaskAssignment2TaskList/>}
         </div>
     )
 
