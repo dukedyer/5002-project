@@ -1,6 +1,7 @@
 import Trip2TicketList from "../trips/trip-2-tickets-list";
 import Task2TripsList from "./task-2-trips-list";
 import TaskAssignment2TaskList from "./task-assignment-2-tasks-list";
+import TaskAssignment2EmployeeList from "./task-assignment-2-employees-list";
 
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
@@ -98,6 +99,7 @@ const TaskAssignmentFormEditor = () => {
                 Save
             </button>
             {idHelper(user.id) && <TaskAssignment2TaskList/>}
+            {idHelper(user.id) && <TaskAssignment2EmployeeList/>}
         </div>
     )
 

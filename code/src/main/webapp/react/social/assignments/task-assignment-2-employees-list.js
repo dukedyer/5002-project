@@ -1,21 +1,19 @@
 const {Link, useHistory, useParams} = window.ReactRouterDOM;
 const { useState, useEffect } = React;
 
-const findAllPlanes2 = (id) => fetch(`${"http://localhost:8080/api/user2tickets"}/${id}`)
+const findAllPlanes2 = (id) => fetch(`${"http://localhost:8080/api/task-assignment2employees"}/${id}`)
     .then(response => response.json());
 
 const goBack = () => {
     history.back()
 };
 
-
 function isStuff(stuff) {
     return stuff.length > 0
 }
 
-const User2TicketList = () => {
+const TaskAssignment2EmployeeList = () => {
     const {id} = useParams()
-    console.log(id);
     const history = useHistory()
     const [planes, setPlanes] = useState([])
     useEffect(() => {
@@ -26,15 +24,15 @@ const User2TicketList = () => {
     const findAllPlanes = (id) =>findAllPlanes2(id).then(planes => setPlanes(planes))
     return(
         <div>
-            {isStuff(planes) && <h2>User {id}'s Tickets</h2>}
+            {isStuff(planes) && <h2>Employees With Assignment {id}</h2>}
             <ul className="list-group">
                 {
                     planes.map(user =>
                                    <li className="list-group-item"
                                        key={user.id}>
-                                       <Link to={`/tickets/${user.id}`}>
+                                       <Link to={`/employees/${user.id}`}>
                                            ID: {user.id},
-                                           Boarding Date: {user.boardingTime}
+                                           Name: {user.firstName} {user.lastName}
                                        </Link>
                                    </li>)
                 }
@@ -45,4 +43,4 @@ const User2TicketList = () => {
     )
 }
 
-export default User2TicketList;
+export default TaskAssignment2EmployeeList;

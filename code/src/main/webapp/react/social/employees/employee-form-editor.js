@@ -1,9 +1,5 @@
-
-import PlaneFormEditor from "../planes/plane-form-editor";
 import User2TicketList from "../users/user-2-ticket-list";
-import PassengerList from "../passengers/passenger-list";
-
-import PlaneList from "../planes/plane-list";
+import Employee2TaskAssignmentList from "./employee-2-task-assignments-list";
 import Employee2EmployeeList from "./employee-2-employee-list";
 
 const {useState, useEffect} = React;
@@ -143,6 +139,7 @@ const EmployeeFormEditor = () => {
             </button>
             {idHelper(user.id) && <User2TicketList/>}
             {idHelper(user.id) && <Employee2EmployeeList/>}
+            {idHelper(user.id) && <Employee2TaskAssignmentList/>}
         </div>
     )
 
