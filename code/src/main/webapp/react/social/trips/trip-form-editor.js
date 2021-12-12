@@ -1,4 +1,5 @@
-import Trip2TicketList from "./trips-2-tickets-list";
+import Trip2TicketList from "./trip-2-tickets-list";
+import Trip2TaskList from "./trip-2-tasks-list";
 
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
@@ -96,6 +97,7 @@ const TripFormEditor = () => {
                 Save
             </button>
             {idHelper(user.id) && <Trip2TicketList/>}
+            {idHelper(user.id) && <Trip2TaskList/>}
         </div>
     )
 

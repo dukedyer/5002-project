@@ -4,11 +4,11 @@ import Task2TripsList from "./task-2-trips-list";
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
-export const findPlaneById = (id) => fetch(`${"http://localhost:8080/api/tasks"}/${id}`)
+export const findPlaneById = (id) => fetch(`${"http://localhost:8080/api/task-assignments"}/${id}`)
     .then(response => response.json())
 
 export const deletePlane = (id) =>
-    fetch(`${"http://localhost:8080/api/tasks"}/${id}`, {
+    fetch(`${"http://localhost:8080/api/task-assignments"}/${id}`, {
         method: "DELETE"
     })
 
@@ -19,7 +19,7 @@ function idHelper(id) {
 }
 
 export const createPlane = (user) =>
-    fetch("http://localhost:8080/api/tasks", {
+    fetch("http://localhost:8080/api/task-assignments", {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {'content-type': 'application/json'}
@@ -27,14 +27,14 @@ export const createPlane = (user) =>
         .then(response => response.json())
 
 export const updatePlaneHelper = (id, user) =>
-    fetch(`${"http://localhost:8080/api/tasks"}/${id}`, {
+    fetch(`${"http://localhost:8080/api/task-assignments"}/${id}`, {
         method: 'PUT',
         body: JSON.stringify(user),
         headers: {'content-type': 'application/json'}
     })
         .then(response => response.json())
 
-const TaskFormEditor = () => {
+const TaskAssignmentFormEditor = () => {
     const {id} = useParams()
     const [user, setUser] = useState({})
     useEffect(() => {
@@ -53,27 +53,27 @@ const TaskFormEditor = () => {
 
     return (
         <div>
-            <h2>Task Editor</h2>
+            <h2>Task Assignment Editor</h2>
             <label>ID</label>
             <input value={user.id}/><br/>
 
-            <label>Status</label>
+            <label>Employee</label>
             <input onChange={(e) =>
                 setUser(user =>
-                            ({...user, status: e.target.value}))}
-                   value={user.status}/><br/>
+                            ({...user, employee: e.target.value}))}
+                   value={user.employee}/><br/>
 
-            <label>Name</label>
+            <label>Task</label>
             <input onChange={(e) =>
                 setUser(user =>
-                            ({...user, name: e.target.value}))}
-                   value={user.name}/><br/>
+                            ({...user, task: e.target.value}))}
+                   value={user.task}/><br/>
 
-            <label>Trip</label>
-            <input onChange={(e) =>
+            <label>Date</label>
+            <input type={"date"} onChange={(e) =>
                 setUser(user =>
-                            ({...user, trip: e.target.value}))}
-                   value={user.trip}/><br/>
+                            ({...user, date: e.target.value}))}
+                   value={user.date}/><br/>
 
             <button
                 onClick={() => {
@@ -96,10 +96,9 @@ const TaskFormEditor = () => {
                 onClick={() => updatePlane(user.id, user)}>
                 Save
             </button>
-            {idHelper(user.id) && <Task2TripsList/>}
         </div>
     )
 
 }
 
-export default TaskFormEditor
+export default TaskAssignmentFormEditor

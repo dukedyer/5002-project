@@ -60,6 +60,9 @@ const Home = () => {
                     <button style={buttonStyling} onClick={() => history.push("/tasks")}>
                         Tasks
                     </button>
+                    <button style={buttonStyling} onClick={() => history.push("/task-assignments")}>
+                        Task Assignments
+                    </button>
                 </div>
             </div>
             <div style={box}>

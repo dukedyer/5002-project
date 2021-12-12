@@ -13,7 +13,8 @@ import TripList from "./trips/trip-list";
 import TripFormEditor from "./trips/trip-form-editor";
 import TaskList from "./tasks/task-list";
 import TaskFormEditor from "./tasks/task-form-editor";
-import User2TicketList from "./users/user-2-ticket-list";
+import TaskAssignmentList from "./taskAssignments/task-assignment-list";
+import TaskAssignmentFormEditor from "./taskAssignments/task-assignment-form-editor";
 
 const {HashRouter, Route} = window.ReactRouterDOM; 
 const App = () => {
@@ -64,6 +65,12 @@ const App = () => {
                 </Route>
                 <Route path="/tasks/:id" exact={true}>
                     <TaskFormEditor/>
+                </Route>
+                <Route path="/task-assignments" exact={true}>
+                    <TaskAssignmentList/>
+                </Route>
+                <Route path="/task-assignments/:id" exact={true}>
+                    <TaskAssignmentFormEditor/>
                 </Route>
             </HashRouter>
         </div>

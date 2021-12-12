@@ -1,5 +1,7 @@
 package com.example.springtemplate.models;
 
+import java.sql.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class TaskAssignment {
     private Integer id;
     private Integer employee;
     private Integer task;
+    private Date date;
 
 
     public Integer getId() {
@@ -36,9 +39,19 @@ public class TaskAssignment {
         this.task = task;
     }
 
-    public TaskAssignment(Integer employee, Integer task) {
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date getDate() {
+        return this.date;
+    }
+
+
+    public TaskAssignment(Integer employee, Integer task, Date date) {
         this.employee = employee;
         this.task = task;
+        this.date = date;
     }
 
     public TaskAssignment() {}
