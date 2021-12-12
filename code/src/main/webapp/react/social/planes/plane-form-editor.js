@@ -1,3 +1,5 @@
+import Plane2TicketList from "./plane-2-tickets-list";
+
 const {useState, useEffect} = React;
 const {useParams, useHistory} = window.ReactRouterDOM;
 
@@ -8,6 +10,12 @@ export const deletePlane = (id) =>
     fetch(`${"http://localhost:8080/api/planes"}/${id}`, {
         method: "DELETE"
     })
+
+function idHelper(id) {
+    if (id) {
+        return true;
+    }
+}
 
 export const createPlane = (user) =>
     fetch("http://localhost:8080/api/planes", {
@@ -81,6 +89,7 @@ const PlaneFormEditor = () => {
                 onClick={() => updatePlane(user.id, user)}>
                 Save
             </button>
+            {idHelper(user.id) && <Plane2TicketList/>}
         </div>
     )
 
