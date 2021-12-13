@@ -8,6 +8,11 @@ const goBack = () => {
     history.back()
 };
 
+
+function isStuff(stuff) {
+    return stuff.length > 0
+}
+
 const Employee2EmployeeList = () => {
     const {id} = useParams()
     const history = useHistory()
@@ -20,7 +25,7 @@ const Employee2EmployeeList = () => {
     const findAllPlanes = (id) =>findAllPlanes2(id).then(planes => setPlanes(planes))
     return(
         <div>
-            <h2>Employee {id}'s Manager</h2>
+            {isStuff(planes) && <h2>Employee {id}'s Manager</h2>}
             <ul className="list-group">
                 {
                     planes.map(user =>

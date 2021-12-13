@@ -45,14 +45,14 @@ const Home = () => {
                     <button style={buttonStyling} onClick={() => history.push("/passengers")}>
                         Passengers
                     </button>
-                    <button style={buttonStyling} onClick={() => history.push("/planes")}>
-                        Planes
+                    <button style={buttonStyling} onClick={() => history.push("/employees")}>
+                        Employees
                     </button>
                     <button style={buttonStyling} onClick={() => history.push("/Tickets")}>
                         Tickets
                     </button>
-                    <button style={buttonStyling} onClick={() => history.push("/employees")}>
-                        Employees
+                    <button style={buttonStyling} onClick={() => history.push("/planes")}>
+                        Planes
                     </button>
                     <button style={buttonStyling} onClick={() => history.push("/trips")}>
                         Trips

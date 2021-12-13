@@ -34,7 +34,7 @@ const EmployeeList = () => {
                                        <Link to={`/employees/${user.id}`}>
                                            ID: {user.id},
                                            Role: {user.role},
-                                           Name: {user.firstName}
+                                           Name: {user.firstName} {user.lastName}
                                        </Link>
                                    </li>)
                 }

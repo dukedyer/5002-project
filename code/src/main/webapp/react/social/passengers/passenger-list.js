@@ -32,7 +32,7 @@ const PassengerList = () => {
                             key={user.id}>
                             <Link to={`/passengers/${user.id}`}>
                                 ID: {user.id},
-                                Created Date: {user.createdDate}
+                                Name: {user.firstName} {user.lastName}
                             </Link>
                         </li>)
                 }

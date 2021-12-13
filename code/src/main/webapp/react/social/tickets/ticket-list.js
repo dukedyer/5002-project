@@ -34,7 +34,8 @@ const TicketList = () => {
                                       key={user.id}>
                                       <Link to={`/tickets/${user.id}`}>
                                           ID: {user.id},
-                                          Boarding Time: {user.boardingTime}
+                                          Boarding Date: {user.boardingTime},
+                                          Gate: {user.gate}
                                       </Link>
                                   </li>)
                 }
