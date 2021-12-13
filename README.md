@@ -45,7 +45,15 @@ Our solution creates a platform for accurate, relational record keeping for of p
 
 **User - describe the typical user(s) that would use your solution**
 
+The typical user would be a DBA or project manager working at the airport. This person would have the ability to create tickets for passengers as well as assign specific staff to trips. It is a platform that seeks to enable end-to-end administration of the airport.
+
+If a form of authentication/user profiles were implemented in the future, then you may see passengers interacting with the web app to book tickets on specific trips. However, since the web app user profiles were out of scope for this project, access to the tables and record creation was left open. Therefore, the ideal user is one that is allowed to access all the tables and have full visibility into the functions of an airport
+
 **Domain objects - describe at least two of the domain objects you implemented in your solution**
+
+The Plane represents an airplane. Planes have an serial number and a name associated with them. The passenger's Ticket has a reference to the Plane that they will board for their trip, as expected with a flight.
+
+The Task is just that, a task, assigned to an employee that is necessary for the successful completion of a trip. Tasks can be thought of as a checklist that employees must complete. For example a task a flight attendant may have assigned to them is to "perform safety announcements", which are done after boarding a plane, pre-departure.
 
 ### Team
 - Logan Mednick:  CS5200 12293 Database Management Sys SEC 02 Fall 2021
