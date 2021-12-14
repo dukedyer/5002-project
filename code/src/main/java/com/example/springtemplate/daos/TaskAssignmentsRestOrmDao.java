@@ -37,10 +37,9 @@ public class TaskAssignmentsRestOrmDao {
             @PathVariable("taskAssignmentId") Integer id,
             @RequestBody TaskAssignment taskAssignmentUpdates) {
         TaskAssignment taskAssignment = taskAssignmentRepository.findTaskAssignmentById(id);
-
         taskAssignment.setTask(taskAssignmentUpdates.getTask());
         taskAssignment.setEmployee(taskAssignmentUpdates.getEmployee());
-
+        taskAssignment.setDate(taskAssignmentUpdates.getDate());
         return taskAssignmentRepository.save(taskAssignment);
     }
     
