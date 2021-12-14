@@ -8,10 +8,10 @@
 
 ### Links
 - **schema name**: db_final_project
-- [Schema outline](data/uml/README.md)
-- [UML diagram](data/uml/db_final_project_uml_p3.pdf)
-- [SQL table dump](data/dump/)
-- [Code: backend and frontend](code/)
+- [Schema outline](./SCHEMA_DESCRIPTION.md)
+- [UML diagram](./uml_diagram.pdf)
+- [SQL table dump](./database/)
+- [Code: backend and frontend](./code/)
 
 ### Project Description
 
