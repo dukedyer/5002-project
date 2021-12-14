@@ -9,7 +9,7 @@
 ### Links
 - **schema name**: db_final_project
 - [Schema outline](./SCHEMA_DESCRIPTION.md)
-- [UML diagram](./uml_diagram.pdf)
+- [UML diagram](db_design_final_project_UML.pdf)
 - [SQL table dump](./database/)
 - [Code: backend and frontend](./code/)
 
