@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
 -- Host: localhost    Database: db_final_project
 -- ------------------------------------------------------
--- Server version	8.0.27
+-- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,9 +35,9 @@ CREATE TABLE `tickets` (
   KEY `tickets_to_trip_idx` (`trip`),
   KEY `tickets_to_plane_idx` (`plane_id`),
   CONSTRAINT `tickets_to_passenger` FOREIGN KEY (`passenger`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `tickets_to_plane` FOREIGN KEY (`plane_id`) REFERENCES `planes` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `tickets_to_plane` FOREIGN KEY (`plane_id`) REFERENCES `planes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tickets_to_trip` FOREIGN KEY (`trip`) REFERENCES `trips` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `tickets` (
 
 LOCK TABLES `tickets` WRITE;
 /*!40000 ALTER TABLE `tickets` DISABLE KEYS */;
-INSERT INTO `tickets` VALUES (1,1,'2021-11-22 22:15:00',3,5,1,1),(2,2,'2021-11-22 22:20:00',4,5,1,1),(3,4,'2021-09-22 11:00:00',0,1,2,2),(4,5,'2021-11-22 23:00:00',0,7,3,3),(5,6,'2021-11-22 23:00:00',0,7,3,3);
+INSERT INTO `tickets` VALUES (1,1,'2021-11-29 00:00:00',5,12,1,1),(2,2,'2021-12-29 00:00:00',2,9,2,2),(3,3,'2021-12-04 00:00:00',4,20,3,3),(4,4,'2021-12-02 00:00:00',1,11,4,1),(5,6,'2021-12-27 00:00:00',1,5,6,2),(6,7,'2022-01-10 00:00:00',1,7,7,3),(7,2,'2021-12-01 00:00:00',1,6,3,3);
 /*!40000 ALTER TABLE `tickets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-06 21:22:50
+-- Dump completed on 2021-12-13 21:05:08

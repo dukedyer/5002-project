@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
 -- Host: localhost    Database: db_final_project
 -- ------------------------------------------------------
--- Server version	8.0.27
+-- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `trips`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `trips` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `origin` varchar(30) NOT NULL,
-  `destination` varchar(30) NOT NULL,
-  `airline` varchar(30) NOT NULL,
+  `origin` varchar(30) DEFAULT NULL,
+  `destination` varchar(30) DEFAULT NULL,
+  `airline` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `trip_2_airline_idx` (`airline`),
+  KEY `trip_2_airline` (`airline`),
   CONSTRAINT `trip_2_airline` FOREIGN KEY (`airline`) REFERENCES `airlines` (`airline`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `trips` (
 
 LOCK TABLES `trips` WRITE;
 /*!40000 ALTER TABLE `trips` DISABLE KEYS */;
-INSERT INTO `trips` VALUES (1,'BWI','ILM','DELTA'),(2,'ILM','BOS','AMERICAN'),(3,'CLT','RDU','SOUTHWEST');
+INSERT INTO `trips` VALUES (1,'BOS','JFK','DELTA'),(2,'LAX','BOS','AMERICAN'),(3,'JFK','LAX','AMERICAN'),(4,'DFW','BOS','DELTA'),(5,'LGA','BUF','AMERICAN'),(6,'JFK','BOS','SOUTHWEST'),(7,'FLL','ORD','AMERICAN'),(8,'LAX','BUR','SOUTHWEST');
 /*!40000 ALTER TABLE `trips` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-06 21:22:51
+-- Dump completed on 2021-12-13 21:05:08

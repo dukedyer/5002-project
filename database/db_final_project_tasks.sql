@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
 -- Host: localhost    Database: db_final_project
 -- ------------------------------------------------------
--- Server version	8.0.27
+-- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,8 +29,10 @@ CREATE TABLE `tasks` (
   `trip` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `tasks_to_trip_idx` (`trip`),
+  KEY `tasks_to_status_idx` (`status`),
+  CONSTRAINT `tasks_to_status` FOREIGN KEY (`status`) REFERENCES `statuses` (`status`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tasks_to_trip` FOREIGN KEY (`trip`) REFERENCES `trips` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +41,7 @@ CREATE TABLE `tasks` (
 
 LOCK TABLES `tasks` WRITE;
 /*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
-INSERT INTO `tasks` VALUES (1,'NOT STARTED','cross check',1),(2,'IN PROGRESS','food service',2),(3,'COMPLETED','food cleanup',3);
+INSERT INTO `tasks` VALUES (1,'IN PROGRESS','Clean the rear bathroom',7),(2,'IN PROGRESS','Do safety demo',2),(3,'COMPLETE','Hand out drinks',3),(4,'BLOCKED','Hold down unruly guest',3);
 /*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-06 21:22:51
+-- Dump completed on 2021-12-13 21:05:08

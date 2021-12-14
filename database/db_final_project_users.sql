@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
 -- Host: localhost    Database: db_final_project
 -- ------------------------------------------------------
--- Server version	8.0.27
+-- Server version	8.0.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,12 +26,12 @@ CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `first_name` varchar(45) DEFAULT NULL,
   `last_name` varchar(45) DEFAULT NULL,
-  `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `email` varchar(45) DEFAULT NULL,
   `date_of_birth` datetime DEFAULT CURRENT_TIMESTAMP,
+  `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Duke','Dyer','dukeman','qwerty','duke@duke.com','1995-04-01 00:00:00'),(2,'Sue','Smith','sue','123456','sue@gmail.com','1982-01-01 00:00:00'),(3,'Jon','Doe','jon','p@ssword','jon@jonblog.net','1961-02-08 00:00:00'),(4,'Bob','Doe','bob','password','bob@bob.com','1990-01-01 00:00:00'),(5,'Adam','Smith','adam','111111','adam@adam.io','1977-08-07 00:00:00'),(6,'Luke','Butler','luke','00000','luke@gmail.com','1993-12-20 00:00:00');
+INSERT INTO `users` VALUES (1,'Logan','Mednick','password1','lsmednick@gmail.com','1996-07-27 00:00:00','lsmednick'),(2,'Colin','Barrett','dontlookup','cbarrett@gmail.com','1997-10-22 00:00:00','cbarrett'),(3,'Amanda','Thompson','fakepassword12','athompson@yahoo.com','2001-06-13 00:00:00','athompson'),(4,'Ryan','Henry','66aded452d','ryansemail@northeastern.edu','1987-02-13 00:00:00','rhenry'),(5,'Jim','Jones','password123','jj123@aa.com','1988-06-12 00:00:00','jj123'),(6,'Stewart','Little','iamarat10','stewart@aa.com','1990-06-13 00:00:00','stewart'),(7,'Samantha','Gravy','ilovegravy12','sgravy@aa.com','1993-05-08 00:00:00','sgravy'),(8,'Caleb','Jenkins','ilovebeef12','jenkins@aa.com','2001-01-08 00:00:00','jenkins');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-12-06 21:22:51
+-- Dump completed on 2021-12-13 21:05:09
